@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ammar | AI & Software Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Muhammad Ammar - Computer Science graduate specialized in AI, ML, LLM integration, and Full-Stack Web Development.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f5ff',
+                            100: '#e0ebff',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            accent: '#6366f1',
+                            cyan: '#06b6d4',
+                            purple: '#8b5cf6',
+                        },
+                        dark: {
+                            bg: '#0b0f19',
+                            card: '#111827',
+                            border: '#1f2937',
+                            hover: '#1f293d',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 1.05rem;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.3), rgba(236, 72, 153, 0.2));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-slate-100 antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
+
+    <!-- Background Ambient Glows -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-500/15 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute top-1/3 -right-40 w-96 h-96 bg-brand-purple/15 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-brand-cyan/15 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-bg/80 border-b border-gray-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-purple to-brand-cyan flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        MA
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white group-hover:text-brand-400 transition-colors">
+                        Muhammad <span class="text-brand-400">Ammar</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-1 bg-gray-900/60 p-1.5 rounded-full border border-gray-800 text-sm">
+                    <a href="#about" class="px-4 py-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-800/60 transition-all">About</a>
+                    <a href="#experience" class="px-4 py-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-800/60 transition-all">Experience</a>
+                    <a href="#projects" class="px-4 py-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-800/60 transition-all">Projects</a>
+                    <a href="#skills" class="px-4 py-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-800/60 transition-all">Skills</a>
+                    <a href="#education" class="px-4 py-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-800/60 transition-all">Education</a>
+                    <a href="#contact" class="px-4 py-2 rounded-full text-gray-300 hover:text-white hover:bg-gray-800/60 transition-all">Contact</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-3">
+                    <a href="updated_resume.pdf" download class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-brand-600 to-brand-purple hover:from-brand-500 hover:to-brand-purple text-white text-sm font-semibold shadow-md shadow-brand-500/20 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Resume</span>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 border-b border-gray-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">About</a>
+            <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Experience</a>
+            <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Projects</a>
+            <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Skills</a>
+            <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Education</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Contact</a>
+            <div class="pt-2">
+                <a href="updated_resume.pdf" download class="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl bg-brand-600 text-white font-semibold text-sm">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Download Resume</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Hero Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <!-- Status Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs sm:text-sm font-medium backdrop-blur-sm">
+                            <span class="flex h-2 w-2 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                            </span>
+                            AI Intern @ Systems Limited • CS Graduate
+                        </div>
+
+                        <!-- Main Heading -->
+                        <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            Hi, I'm <span class="gradient-text">Muhammad Ammar</span>
+                        </h1>
+
+                        <!-- Subtitle -->
+                        <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            AI & Machine Learning Engineer specializing in <strong class="text-white font-semibold">LLMs, NLP workflows, real-time telemetry</strong>, and scalable <strong class="text-white font-semibold">full-stack web applications</strong>.
+                        </p>
+
+                        <!-- Highlights List -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs sm:text-sm text-gray-400">
+                            <div class="flex items-center gap-2 bg-gray-900/60 px-3 py-1.5 rounded-lg border border-gray-800">
+                                <i class="fa-solid fa-brain text-brand-purple"></i>
+                                <span>LLMs & Local Agents</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-gray-900/60 px-3 py-1.5 rounded-lg border border-gray-800">
+                                <i class="fa-solid fa-chart-line text-brand-cyan"></i>
+                                <span>Sales Forecasting & ML</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-gray-900/60 px-3 py-1.5 rounded-lg border border-gray-800">
+                                <i class="fa-solid fa-satellite-dish text-brand-500"></i>
+                                <span>SUPARCO Industrial Dashboard</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-xl shadow-brand-600/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all">
+                                <span>View My Work</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gray-900 hover:bg-gray-800 text-gray-200 hover:text-white border border-gray-800 hover:border-gray-700 font-semibold text-sm transition-all">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>Get In Touch</span>
+                            </a>
+                        </div>
+
+                        <!-- Contact Quick Links -->
+                        <div class="pt-6 border-t border-gray-800/80 flex items-center justify-center lg:justify-start gap-6 text-gray-400">
+                            <a href="mailto:ammarmosani324@gmail.com" class="hover:text-brand-400 transition-colors flex items-center gap-2 text-sm" title="Email Ammar">
+                                <i class="fa-solid fa-envelope text-brand-500"></i>
+                                <span>ammarmosani324@gmail.com</span>
+                            </a>
+                            <a href="tel:+923212212718" class="hover:text-brand-400 transition-colors flex items-center gap-2 text-sm" title="Call Ammar">
+                                <i class="fa-solid fa-phone text-brand-cyan"></i>
+                                <span>+92 321 2212718</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Hero Visual Card -->
+                    <div class="lg:col-span-5">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <!-- Decorative glow -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 via-brand-purple to-brand-cyan rounded-3xl blur-xl opacity-30 animate-pulse-slow"></div>
+                            
+                            <!-- Card Container -->
+                            <div class="relative glass-card rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl border border-gray-800">
+                                <!-- Top Bar -->
+                                <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                    </div>
+                                    <span class="text-xs font-mono text-gray-500">ammar_profile.py</span>
+                                </div>
+
+                                <!-- Code snippet preview -->
+                                <div class="font-mono text-xs sm:text-sm space-y-2 leading-relaxed text-gray-300">
+                                    <p><span class="text-brand-purple">class</span> <span class="text-brand-400 font-bold">AIEngineer</span>:</p>
+                                    <p class="pl-4"><span class="text-brand-purple">def</span> <span class="text-blue-400">__init__</span>(self):</p>
+                                    <p class="pl-8"><span class="text-gray-400">self.name</span> = <span class="text-emerald-400">"Muhammad Ammar"</span></p>
+                                    <p class="pl-8"><span class="text-gray-400">self.degree</span> = <span class="text-emerald-400">"BS Computer Science"</span></p>
+                                    <p class="pl-8"><span class="text-gray-400">self.location</span> = <span class="text-emerald-400">"Karachi, Pakistan"</span></p>
+                                    <p class="pl-8"><span class="text-gray-400">self.internship</span> = <span class="text-emerald-400">"Systems Limited"</span></p>
+                                    <p class="pl-4"><span class="text-brand-purple">def</span> <span class="text-blue-400">get_core_skills</span>(self):</p>
+                                    <p class="pl-8"><span class="text-brand-purple">return</span> [</p>
+                                    <p class="pl-12 text-amber-300">"LLMs & NLP", "PyTorch / Scikit",</p>
+                                    <p class="pl-12 text-amber-300">"Next.js & React", "ASP.NET Core",</p>
+                                    <p class="pl-12 text-amber-300">"Grafana & InfluxDB"</p>
+                                    <p class="pl-8">]</p>
+                                </div>
+
+                                <!-- Quick Stat Badges -->
+                                <div class="grid grid-cols-2 gap-3 pt-2">
+                                    <div class="bg-gray-900/80 p-3 rounded-xl border border-gray-800/80 text-center">
+                                        <div class="text-xl font-bold text-brand-400">4+</div>
+                                        <div class="text-xs text-gray-400">Major AI & Web Projects</div>
+                                    </div>
+                                    <div class="bg-gray-900/80 p-3 rounded-xl border border-gray-800/80 text-center">
+                                        <div class="text-xl font-bold text-brand-purple">SUPARCO</div>
+                                        <div class="text-xs text-gray-400">FYP Collaboration</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-gray-950/60 border-y border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400">About Me</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">Passionate About AI Workflows & Modern Engineering</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-brand-purple mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Bio Text -->
+                    <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8 space-y-5 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-user-astronaut text-brand-400"></i>
+                                Professional Profile
+                            </h4>
+                            <p class="text-gray-300 leading-relaxed">
+                                Motivated and detail-oriented <strong class="text-white">Computer Science graduate</strong> with hands-on experience in <strong class="text-white">Artificial Intelligence</strong> and <strong class="text-white">Machine Learning</strong>. Skilled in designing, developing, and deploying AI-driven solutions using modern tools and frameworks.
+                            </p>
+                            <p class="text-gray-300 leading-relaxed">
+                                Completed an AI internship at <strong class="text-white">Systems Limited</strong>, gaining practical exposure to real-world AI workflows, open-source LLM experimentation, model deployment via Streamlit & APIs, and cross-functional team collaboration.
+                            </p>
+                            <p class="text-gray-300 leading-relaxed">
+                                Passionate about harnessing data-driven insights, intelligent local agents, digital twin simulations, and high-performance full-stack monitoring systems to solve complex engineering problems.
+                            </p>
+                        </div>
+
+                        <!-- Core Capabilities Pills -->
+                        <div class="pt-4 border-t border-gray-800 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-brand-500/10 text-brand-400 text-xs font-semibold rounded-lg border border-brand-500/20">LLM Fine-Tuning & Prompting</span>
+                            <span class="px-3 py-1 bg-brand-purple/10 text-brand-purple text-xs font-semibold rounded-lg border border-brand-purple/20">NLP Text Summarization</span>
+                            <span class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan text-xs font-semibold rounded-lg border border-brand-cyan/20">Streamlit & API Deployment</span>
+                            <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-lg border border-emerald-500/20">Telemetry & PLC Simulators</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Facts Grid -->
+                    <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                        <div class="glass-card p-5 rounded-xl border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 text-xl shrink-0">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400 uppercase font-semibold">Degree</div>
+                                <div class="text-sm font-bold text-white">BS Computer Science</div>
+                                <div class="text-xs text-gray-400">Salim Habib University (2022–2026)</div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center text-brand-purple text-xl shrink-0">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400 uppercase font-semibold">Latest Experience</div>
+                                <div class="text-sm font-bold text-white">AI Intern</div>
+                                <div class="text-xs text-gray-400">Systems Limited (Jun–Aug 2025)</div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-5 rounded-xl border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400 uppercase font-semibold">Location</div>
+                                <div class="text-sm font-bold text-white">Karachi, Pakistan</div>
+                                <div class="text-xs text-gray-400">Open for Local & Remote Roles</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Work Experience Section -->
+        <section id="experience" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400">Work Experience</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">Industry Experience</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-brand-purple mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="max-w-4xl mx-auto relative">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-500 via-brand-purple to-transparent -translate-x-1/2 hidden sm:block"></div>
+
+                    <!-- Experience Item 1 -->
+                    <div class="relative mb-12">
+                        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-gray-800 shadow-xl relative hover:border-brand-500/40 transition-colors">
+                            <!-- Date Badge -->
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                                <span class="px-3.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold">
+                                    Jun 2025 — Aug 2025
+                                </span>
+                                <span class="text-xs text-gray-400 flex items-center gap-1">
+                                    <i class="fa-solid fa-location-dot text-brand-500"></i> Karachi, Pakistan
+                                </span>
+                            </div>
+
+                            <!-- Header -->
+                            <div class="mb-4">
+                                <h4 class="text-2xl font-bold text-white">AI Intern</h4>
+                                <h5 class="text-base font-semibold text-brand-400">Systems Limited</h5>
+                            </div>
+
+                            <!-- Bullet Points -->
+                            <ul class="space-y-3 text-gray-300 text-sm sm:text-base leading-relaxed">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-brand-400 mt-1 text-xs shrink-0"></i>
+                                    <span>Contributed to the development and experimentation of open-source <strong class="text-white">Large Language Model (LLM) tools</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-brand-400 mt-1 text-xs shrink-0"></i>
+                                    <span>Assisted in building <strong class="text-white">AI-driven business automation solutions</strong>, improving operational efficiency and reducing manual workflows.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-brand-400 mt-1 text-xs shrink-0"></i>
+                                    <span>Worked on <strong class="text-white">Natural Language Processing (NLP)</strong> projects involving text classification and automated summarization.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-brand-400 mt-1 text-xs shrink-0"></i>
+                                    <span>Supported the deployment of AI models into production environments using APIs and <strong class="text-white">Streamlit dashboards</strong>, ensuring smooth integration.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-brand-400 mt-1 text-xs shrink-0"></i>
+                                    <span>Collaborated with senior data scientists and AI engineers, strengthening teamwork, communication, and project management skills.</span>
+                                </li>
+                            </ul>
+
+                            <!-- Tech Badges -->
+                            <div class="pt-5 mt-5 border-t border-gray-800/80 flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">LLMs</span>
+                                <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">NLP</span>
+                                <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Streamlit</span>
+                                <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Python</span>
+                                <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">API Deployment</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-gray-950/60 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400">Featured Work</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">Projects & Innovations</h3>
+                    <p class="text-gray-400 text-sm sm:text-base">Explore my major projects across AI/ML models, industrial IoT telemetry, and web automation.</p>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-brand-purple mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Featured FYP Project (Full Width Spotlight / Card 1) -->
+                    <div class="md:col-span-2 glass-card rounded-2xl p-6 sm:p-8 border border-brand-500/30 bg-gradient-to-br from-gray-900/90 via-dark-card to-gray-950/90 shadow-2xl relative overflow-hidden group">
+                        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl group-hover:bg-brand-500/20 transition-all duration-500"></div>
+
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                            <span class="px-3.5 py-1 rounded-full bg-gradient-to-r from-brand-600 to-brand-purple text-white text-xs font-bold uppercase tracking-wider shadow-md">
+                                <i class="fa-solid fa-star text-yellow-300 mr-1"></i> Featured Final Year Project
+                            </span>
+                            <span class="text-xs font-mono text-gray-400">Sep 2025 — May 2026</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                            <div class="lg:col-span-7 space-y-4">
+                                <h4 class="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-brand-400 transition-colors">
+                                    Custom Grafana-Based Monitoring & Control Console
+                                </h4>
+                                <div class="inline-flex items-center gap-2 text-xs font-semibold text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-lg border border-brand-cyan/20">
+                                    <i class="fa-solid fa-handshake"></i>
+                                    In Collaboration with SUPARCO Pakistan
+                                </div>
+                                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                                    Built a comprehensive real-time industrial monitoring dashboard and control system designed for high-density telemetry processing and industrial asset supervision.
+                                </p>
+                                <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-check text-brand-400 mt-0.5"></i>
+                                        <span>Built real-time industrial monitoring dashboard using Next.js, React, ASP.NET Core (.NET 8), Grafana, and InfluxDB.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-check text-brand-400 mt-0.5"></i>
+                                        <span>Developed a <strong class="text-white">Digital Twin simulator</strong> for real-time PLC data monitoring and visualization.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-check text-brand-400 mt-0.5"></i>
+                                        <span>Implemented JWT authentication, role-based access control (RBAC), and automated email alerts.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-check text-brand-400 mt-0.5"></i>
+                                        <span>Integrated Modbus TCP protocol, Docker, and InfluxDB for scalable, low-latency telemetry processing.</span>
+                                    </li>
+                                </ul>
+
+                                <div class="pt-2 flex flex-wrap gap-2">
+                                    <span class="px-2.5 py-1 bg-brand-500/20 text-brand-300 text-xs font-semibold rounded-md border border-brand-500/30">Next.js</span>
+                                    <span class="px-2.5 py-1 bg-brand-500/20 text-brand-300 text-xs font-semibold rounded-md border border-brand-500/30">React</span>
+                                    <span class="px-2.5 py-1 bg-brand-500/20 text-brand-300 text-xs font-semibold rounded-md border border-brand-500/30">ASP.NET Core (.NET 8)</span>
+                                    <span class="px-2.5 py-1 bg-brand-500/20 text-brand-300 text-xs font-semibold rounded-md border border-brand-500/30">Grafana</span>
+                                    <span class="px-2.5 py-1 bg-brand-500/20 text-brand-300 text-xs font-semibold rounded-md border border-brand-500/30">InfluxDB</span>
+                                    <span class="px-2.5 py-1 bg-brand-500/20 text-brand-300 text-xs font-semibold rounded-md border border-brand-500/30">Modbus TCP</span>
+                                    <span class="px-2.5 py-1 bg-brand-500/20 text-brand-300 text-xs font-semibold rounded-md border border-brand-500/30">Docker</span>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5">
+                                <div class="bg-gray-950 p-5 rounded-xl border border-gray-800 space-y-4">
+                                    <div class="text-xs font-mono text-gray-400 border-b border-gray-800 pb-2 flex justify-between">
+                                        <span>SYSTEM DIAGNOSTICS</span>
+                                        <span class="text-emerald-400">● LIVE MONITORING</span>
+                                    </div>
+                                    <div class="space-y-2 text-xs">
+                                        <div class="flex justify-between text-gray-300">
+                                            <span>Telemetry Protocol:</span>
+                                            <span class="font-mono text-brand-cyan">Modbus TCP</span>
+                                        </div>
+                                        <div class="flex justify-between text-gray-300">
+                                            <span>Time-Series DB:</span>
+                                            <span class="font-mono text-brand-purple">InfluxDB</span>
+                                        </div>
+                                        <div class="flex justify-between text-gray-300">
+                                            <span>Backend Service:</span>
+                                            <span class="font-mono text-brand-400">ASP.NET Core 8</span>
+                                        </div>
+                                        <div class="flex justify-between text-gray-300">
+                                            <span>Sim Engine:</span>
+                                            <span class="font-mono text-emerald-400">PLC Digital Twin</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Project 2: Text-to-SQL App -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 border border-gray-800 flex flex-col justify-between hover:border-brand-500/40 transition-colors group">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 text-xl">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-400 transition-colors">
+                                Text-to-SQL App (LLM-Powered)
+                            </h4>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Built a natural language interface for querying SQL databases powered by local Large Language Models (LLMs).
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-brand-400 mt-1"></i>
+                                    <span>Integrated local LLMs including <strong class="text-gray-200">SQLCoder</strong> and <strong class="text-gray-200">Ollama</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-brand-400 mt-1"></i>
+                                    <span>Enabled non-technical users to generate and execute accurate SQL queries from plain text prompts.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-brand-400 mt-1"></i>
+                                    <span>Deployed interactive frontend with Streamlit and Hugging Face pipelines.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-6 mt-6 border-t border-gray-800 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Python</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Hugging Face</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">SQLCoder</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Ollama</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Streamlit</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Project 3: AI Tour Booking App -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 border border-gray-800 flex flex-col justify-between hover:border-brand-purple/40 transition-colors group">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center text-brand-purple text-xl">
+                                <i class="fa-solid fa-plane-departure"></i>
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-purple transition-colors">
+                                AI Tour Booking App
+                            </h4>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Developed an intelligent, scalable travel assistant utilizing AI agents to automatically discover optimal flights and hotel packages.
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-brand-purple mt-1"></i>
+                                    <span>Autonomous AI agent workflow to compare and identify cheapest travel itineraries.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-brand-purple mt-1"></i>
+                                    <span>Integrated Next.js, Prisma ORM, PostgreSQL database, and Make.com for real-time automation.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-brand-purple mt-1"></i>
+                                    <span>Crafted clean, accessible UI components powered by ShadCN UI.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-6 mt-6 border-t border-gray-800 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Next.js</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Prisma ORM</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">PostgreSQL</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Make.com</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">ShadCN UI</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Project 4: Sales Forecast (Daraz Dataset) -->
+                    <div class="md:col-span-2 glass-card rounded-2xl p-6 sm:p-8 border border-gray-800 flex flex-col justify-between hover:border-brand-cyan/40 transition-colors group">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan text-xl">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold">
+                                    23% RMSE Reduction
+                                </span>
+                            </div>
+                            
+                            <h4 class="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-cyan transition-colors">
+                                Sales Forecast & Analytics (Daraz Dataset)
+                            </h4>
+                            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                                Trained advanced regression models on ecommerce transaction data from Daraz to accurately predict product demand and sales volume.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs sm:text-sm text-gray-300">
+                                <div class="bg-gray-900/60 p-3.5 rounded-xl border border-gray-800">
+                                    <strong class="text-white block mb-1">Feature Engineering & Optimization</strong>
+                                    Extensive data cleaning, outlier handling, categorical encoding, and feature selection to optimize prediction metrics.
+                                </div>
+                                <div class="bg-gray-900/60 p-3.5 rounded-xl border border-gray-800">
+                                    <strong class="text-white block mb-1">Model Tuning</strong>
+                                    Hyperparameter optimization resulting in a 23% reduction in Root Mean Squared Error (RMSE).
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 mt-6 border-t border-gray-800 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Python</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Scikit-learn</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Pandas</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">Regression Analysis</span>
+                            <span class="px-2.5 py-1 bg-gray-900 text-gray-300 text-xs font-mono rounded-md border border-gray-800">E-Commerce Data</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400">Technical Expertise</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">Skills & Toolkit</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-brand-purple mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- AI & ML -->
+                    <div class="glass-card rounded-2xl p-6 border border-gray-800 space-y-4 hover:border-brand-500/40 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
+                                <i class="fa-solid fa-robot text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-lg">AI / ML & Data Science</h4>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>Hugging Face & Llama.cpp</span>
+                                <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>SQLCoder & Local LLMs</span>
+                                <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>Scikit-learn & Pandas</span>
+                                <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>NLP (Classification/Summarization)</span>
+                                <i class="fa-solid fa-check text-brand-400 text-xs"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="glass-card rounded-2xl p-6 border border-gray-800 space-y-4 hover:border-brand-purple/40 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center text-brand-purple">
+                                <i class="fa-solid fa-code text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-lg">Languages & Scripting</h4>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>Python</span>
+                                <span class="text-xs font-mono text-brand-400">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>JavaScript</span>
+                                <span class="text-xs font-mono text-brand-400">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>C++</span>
+                                <span class="text-xs font-mono text-brand-400">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>SQL</span>
+                                <span class="text-xs font-mono text-brand-400">Advanced</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Web & Frameworks -->
+                    <div class="glass-card rounded-2xl p-6 border border-gray-800 space-y-4 hover:border-brand-cyan/40 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+                                <i class="fa-solid fa-layer-group text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-lg">Web & Frameworks</h4>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>React.js & Next.js</span>
+                                <i class="fa-solid fa-check text-brand-cyan text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>Prisma ORM & ShadCN</span>
+                                <i class="fa-solid fa-check text-brand-cyan text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>TailwindCSS & Streamlit</span>
+                                <i class="fa-solid fa-check text-brand-cyan text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>ASP.NET Core (.NET 8)</span>
+                                <i class="fa-solid fa-check text-brand-cyan text-xs"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Databases & Telemetry -->
+                    <div class="glass-card rounded-2xl p-6 border border-gray-800 space-y-4 hover:border-emerald-500/40 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                                <i class="fa-solid fa-server text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-lg">Databases & Monitoring</h4>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>MySQL & PostgreSQL</span>
+                                <i class="fa-solid fa-check text-emerald-400 text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>InfluxDB & Grafana</span>
+                                <i class="fa-solid fa-check text-emerald-400 text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>Modbus TCP & PLC Sims</span>
+                                <i class="fa-solid fa-check text-emerald-400 text-xs"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tools & Cloud -->
+                    <div class="glass-card rounded-2xl p-6 border border-gray-800 space-y-4 hover:border-amber-500/40 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                                <i class="fa-solid fa-cloud text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-lg">DevOps & Cloud</h4>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>Docker Containers</span>
+                                <i class="fa-solid fa-check text-amber-400 text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>AWS (Basic Services)</span>
+                                <i class="fa-solid fa-check text-amber-400 text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>Git, Vercel, Make.com</span>
+                                <i class="fa-solid fa-check text-amber-400 text-xs"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Core Competencies -->
+                    <div class="glass-card rounded-2xl p-6 border border-gray-800 space-y-4 hover:border-rose-500/40 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
+                                <i class="fa-solid fa-sliders text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-white text-lg">Core Skills & Spoken</h4>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>UI & Responsive UX</span>
+                                <i class="fa-solid fa-check text-rose-400 text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>Backend Logic & REST APIs</span>
+                                <i class="fa-solid fa-check text-rose-400 text-xs"></i>
+                            </li>
+                            <li class="flex items-center justify-between bg-gray-900/50 p-2.5 rounded-lg border border-gray-800">
+                                <span>English Language</span>
+                                <span class="text-xs font-mono text-emerald-400">Fluent</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 bg-gray-950/60 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400">Academic Background</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">Education</h3>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-brand-purple mx-auto rounded-full"></div>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 border border-gray-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:border-brand-500/40 transition-colors">
+                        <div class="flex items-center gap-5">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-purple flex items-center justify-center text-white text-2xl font-bold shadow-lg shrink-0">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <span class="px-3 py-0.5 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold border border-brand-500/20">
+                                    Sep 2022 — Jun 2026
+                                </span>
+                                <h4 class="text-xl font-bold text-white">BS in Computer Science</h4>
+                                <h5 class="text-sm font-medium text-gray-300">Salim Habib University</h5>
+                                <p class="text-xs text-gray-400">Karachi, Pakistan</p>
+                            </div>
+                        </div>
+
+                        <div class="w-full sm:w-auto text-left sm:text-right border-t sm:border-t-0 pt-4 sm:pt-0 border-gray-800">
+                            <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/20">
+                                <i class="fa-solid fa-certificate"></i> Graduating 2026
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400">Get In Touch</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">Let's Connect</h3>
+                    <p class="text-gray-400 text-sm sm:text-base">Feel free to reach out for career opportunities, collaborations, or inquiries.</p>
+                    <div class="w-16 h-1 bg-gradient-to-r from-brand-500 to-brand-purple mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
+                    
+                    <!-- Contact Cards -->
+                    <div class="lg:col-span-5 space-y-4">
+                        
+                        <!-- Email Card -->
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 flex items-center justify-between group hover:border-brand-500/40 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 text-xl shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <div class="text-xs text-gray-400 font-semibold uppercase">Email</div>
+                                    <a href="mailto:ammarmosani324@gmail.com" class="text-sm font-bold text-white hover:text-brand-400 transition-colors block truncate">
+                                        ammarmosani324@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('ammarmosani324@gmail.com', this)" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition-colors shrink-0" title="Copy Email">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <!-- Phone Card -->
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 flex items-center justify-between group hover:border-brand-cyan/40 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan text-xl shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase">Phone</div>
+                                    <a href="tel:+923212212718" class="text-sm font-bold text-white hover:text-brand-cyan transition-colors">
+                                        +92 321 2212718
+                                    </a>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('+923212212718', this)" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-gray-800 transition-colors shrink-0" title="Copy Phone">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <!-- Location Card -->
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center text-brand-purple text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400 font-semibold uppercase">Location</div>
+                                <div class="text-sm font-bold text-white">Karachi, Pakistan</div>
+                            </div>
+                        </div>
+
+                        <!-- Resume Card -->
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 flex items-center justify-between bg-gradient-to-r from-brand-600/10 to-brand-purple/10">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center text-xl shrink-0 shadow-lg">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-bold text-white">Download Full CV</div>
+                                    <div class="text-xs text-gray-400">PDF Format (Updated)</div>
+                                </div>
+                            </div>
+                            <a href="updated_resume.pdf" download class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold rounded-xl transition-colors">
+                                Download
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8 border border-gray-800">
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Your Name</label>
+                                    <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-gray-900/90 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Your Email</label>
+                                    <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-gray-900/90 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Subject</label>
+                                <input type="text" required placeholder="Project Inquiry / Job Opportunity" class="w-full px-4 py-3 rounded-xl bg-gray-900/90 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors text-sm">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Message</label>
+                                <textarea required rows="4" placeholder="Hello Ammar, I'd like to discuss..." class="w-full px-4 py-3 rounded-xl bg-gray-900/90 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors text-sm resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-600 via-brand-purple to-brand-cyan hover:from-brand-500 hover:to-brand-cyan text-white font-bold text-sm shadow-xl shadow-brand-500/20 hover:shadow-brand-500/40 transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Send Message</span>
+                            </button>
+                            
+                            <p id="form-status" class="text-xs text-center text-emerald-400 hidden pt-2">
+                                <i class="fa-solid fa-circle-check mr-1"></i> Message sent successfully! I will get back to you soon.
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-gray-800 py-10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-xs">
+                        MA
+                    </div>
+                    <span class="text-sm text-gray-400 font-medium">
+                        © 2026 Muhammad Ammar. Built with precision & passion.
+                    </span>
+                </div>
+
+                <!-- Nav links -->
+                <div class="flex items-center gap-6 text-sm text-gray-400">
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                    <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <!-- Back to Top Button -->
+                <a href="#hero" class="w-10 h-10 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 transition-colors" title="Back to top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-xl';
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            });
+        });
+
+        // Copy to clipboard helper
+        function copyToClipboard(text, btnElement) {
+            navigator.clipboard.writeText(text).then(() => {
+                const icon = btnElement.querySelector('i');
+                icon.className = 'fa-solid fa-check text-emerald-400';
+                setTimeout(() => {
+                    icon.className = 'fa-regular fa-copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Contact Form Submission Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const status = document.getElementById('form-status');
+            status.classList.remove('hidden');
+            event.target.reset();
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
