@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ammar | AI & Software Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Muhammad Ammar - Computer Science graduate specialized in AI, ML, Medical VLMs (Med-GReF), LLM integration, and Full-Stack Web Development.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        clay: {
+                            bg: '#f0f4f8',
+                            card: '#ffffff',
+                            subtle: '#e6eef8',
+                            text: '#1e293b',
+                            muted: '#64748b',
+                            accent: '#3b82f6',
+                            purple: '#8b5cf6',
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                            rose: '#f43f5e',
+                            cyan: '#06b6d4',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f0f4f8;
+            color: #1e293b;
+        }
+
+        /* Claymorphism 3D Shadow Styles */
+        .clay-card {
+            background: #ffffff;
+            border-radius: 1.75rem;
+            box-shadow: 
+                10px 10px 24px rgba(166, 180, 200, 0.4), 
+                -10px -10px 24px rgba(255, 255, 255, 0.9),
+                inset 3px 3px 6px rgba(255, 255, 255, 0.8), 
+                inset -3px -3px 6px rgba(166, 180, 200, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .clay-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                14px 14px 28px rgba(150, 168, 190, 0.45), 
+                -12px -12px 28px rgba(255, 255, 255, 1),
+                inset 3px 3px 6px rgba(255, 255, 255, 0.9);
+        }
+
+        .clay-card-subtle {
+            background: #eef4fb;
+            border-radius: 1.25rem;
+            box-shadow: 
+                6px 6px 14px rgba(175, 190, 210, 0.4), 
+                -6px -6px 14px rgba(255, 255, 255, 0.9),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .clay-btn-primary {
+            background: linear-gradient(145deg, #3b82f6, #2563eb);
+            color: #ffffff;
+            border-radius: 1.25rem;
+            box-shadow: 
+                6px 6px 16px rgba(37, 99, 235, 0.35), 
+                -4px -4px 12px rgba(255, 255, 255, 0.9),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        .clay-btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 
+                8px 8px 20px rgba(37, 99, 235, 0.45), 
+                -4px -4px 14px rgba(255, 255, 255, 1);
+        }
+
+        .clay-btn-secondary {
+            background: #ffffff;
+            color: #1e293b;
+            border-radius: 1.25rem;
+            box-shadow: 
+                6px 6px 16px rgba(175, 190, 210, 0.35), 
+                -6px -6px 16px rgba(255, 255, 255, 0.9),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+            transition: all 0.25s ease;
+        }
+
+        .clay-btn-secondary:hover {
+            transform: translateY(-2px);
+            color: #2563eb;
+            box-shadow: 
+                8px 8px 20px rgba(160, 178, 200, 0.45), 
+                -6px -6px 18px rgba(255, 255, 255, 1);
+        }
+
+        .clay-badge {
+            background: #eef4fb;
+            border-radius: 1rem;
+            box-shadow: 
+                3px 3px 8px rgba(170, 185, 205, 0.3), 
+                -3px -3px 8px rgba(255, 255, 255, 0.8),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 50%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Scroll Reveal Animation Styles */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-clay-bg text-slate-800 antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Claymorphic Navigation Header -->
+    <header class="sticky top-0 z-50 bg-clay-bg/90 backdrop-blur-md border-b border-white/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 clay-btn-primary flex items-center justify-center font-extrabold text-xl tracking-wider">
+                        MA
+                    </div>
+                    <span class="font-extrabold text-xl tracking-tight text-slate-800 group-hover:text-blue-600 transition-colors">
+                        Muhammad <span class="gradient-text">Ammar</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-1 clay-card-subtle px-3 py-2 text-sm font-semibold text-slate-600">
+                    <a href="#about" class="px-4 py-2 rounded-xl hover:text-blue-600 hover:bg-white/80 transition-all">About</a>
+                    <a href="#research" class="px-4 py-2 rounded-xl hover:text-purple-600 hover:bg-white/80 transition-all">Research</a>
+                    <a href="#experience" class="px-4 py-2 rounded-xl hover:text-blue-600 hover:bg-white/80 transition-all">Experience</a>
+                    <a href="#projects" class="px-4 py-2 rounded-xl hover:text-blue-600 hover:bg-white/80 transition-all">Projects</a>
+                    <a href="#skills" class="px-4 py-2 rounded-xl hover:text-blue-600 hover:bg-white/80 transition-all">Skills</a>
+                    <a href="#education" class="px-4 py-2 rounded-xl hover:text-blue-600 hover:bg-white/80 transition-all">Education</a>
+                    <a href="#contact" class="px-4 py-2 rounded-xl hover:text-blue-600 hover:bg-white/80 transition-all">Contact</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-3">
+                    <a href="updated_resume.pdf" download class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 clay-btn-primary text-sm font-bold">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>Resume</span>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden w-11 h-11 clay-btn-secondary flex items-center justify-center text-slate-600 hover:text-blue-600" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-lg" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 space-y-2 bg-clay-bg border-b border-white/80 shadow-lg">
+            <a href="#about" class="block px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-white">About</a>
+            <a href="#research" class="block px-4 py-2.5 rounded-xl font-semibold text-purple-700 hover:bg-white">Research (Med-GReF)</a>
+            <a href="#experience" class="block px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-white">Experience</a>
+            <a href="#projects" class="block px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-white">Projects</a>
+            <a href="#skills" class="block px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-white">Skills</a>
+            <a href="#education" class="block px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-white">Education</a>
+            <a href="#contact" class="block px-4 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-white">Contact</a>
+            <div class="pt-2">
+                <a href="updated_resume.pdf" download class="flex items-center justify-center gap-2 w-full py-3 clay-btn-primary text-sm font-bold">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>Download Resume</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Hero Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal-on-scroll">
+                        
+                        <!-- Status Badge -->
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 clay-badge text-blue-700 text-xs sm:text-sm font-bold">
+                            <span class="flex h-2.5 w-2.5 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
+                            </span>
+                            AI Researcher & Software Engineer • NeurIPS 2026 Submitter
+                        </div>
+
+                        <!-- Main Heading -->
+                        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                            Hi, I'm <span class="gradient-text">Muhammad Ammar</span>
+                        </h1>
+
+                        <!-- Subtitle -->
+                        <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 font-medium leading-relaxed">
+                            Pioneering <strong class="text-slate-900 font-bold">Medical Vision-Language Reasoning</strong>, <strong class="text-slate-900 font-bold">LLM Hallucination Verification</strong>, and <strong class="text-slate-900 font-bold">Full-Stack AI Engineering</strong>.
+                        </p>
+
+                        <!-- Highlights Pills -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs sm:text-sm font-semibold">
+                            <div class="flex items-center gap-2 px-3.5 py-2 clay-card-subtle text-purple-700">
+                                <i class="fa-solid fa-microscope text-purple-600"></i>
+                                <span>Med-GReF Author</span>
+                            </div>
+                            <div class="flex items-center gap-2 px-3.5 py-2 clay-card-subtle text-blue-700">
+                                <i class="fa-solid fa-brain text-blue-600"></i>
+                                <span>AI Intern @ Systems Limited</span>
+                            </div>
+                            <div class="flex items-center gap-2 px-3.5 py-2 clay-card-subtle text-emerald-700">
+                                <i class="fa-solid fa-satellite-dish text-emerald-600"></i>
+                                <span>SUPARCO Industrial Partner</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#research" class="w-full sm:w-auto px-8 py-4 clay-btn-primary font-bold text-sm flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-flask"></i>
+                                <span>Explore Med-GReF Research</span>
+                            </a>
+                            <a href="#projects" class="w-full sm:w-auto px-8 py-4 clay-btn-secondary font-bold text-sm flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-laptop-code"></i>
+                                <span>View Projects</span>
+                            </a>
+                        </div>
+
+                        <!-- Quick Contact Bar -->
+                        <div class="pt-6 border-t border-slate-300/60 flex items-center justify-center lg:justify-start gap-6 text-slate-600 text-sm font-semibold">
+                            <a href="mailto:ammarmosani324@gmail.com" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                                <i class="fa-solid fa-envelope text-blue-500"></i>
+                                <span>ammarmosani324@gmail.com</span>
+                            </a>
+                            <a href="tel:+923212212718" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-emerald-500"></i>
+                                <span>+92 321 2212718</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Claymorphic Card Visual -->
+                    <div class="lg:col-span-5 reveal-on-scroll" style="transition-delay: 0.15s;">
+                        <div class="clay-card p-6 sm:p-8 space-y-6">
+                            
+                            <!-- Header -->
+                            <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3.5 h-3.5 rounded-full bg-rose-400 shadow-sm"></span>
+                                    <span class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-sm"></span>
+                                    <span class="w-3.5 h-3.5 rounded-full bg-emerald-400 shadow-sm"></span>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">Research Overview</span>
+                            </div>
+
+                            <!-- Highlights List -->
+                            <div class="space-y-4 text-sm font-medium">
+                                <div class="p-3.5 clay-card-subtle flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-purple-500 text-white flex items-center justify-center text-xs font-bold shrink-0">
+                                        <i class="fa-solid fa-dna"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Med-GReF VLM Framework</h4>
+                                        <p class="text-xs text-slate-600">Cross-attention multimodal fusion for medical vision-language reasoning.</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-3.5 clay-card-subtle flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-blue-500 text-white flex items-center justify-center text-xs font-bold shrink-0">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">2.4× Hallucination Reduction</h4>
+                                        <p class="text-xs text-slate-600">Dedicated NLI verifier catches up to 65.5% of medical hallucinations.</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-3.5 clay-card-subtle flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-xs font-bold shrink-0">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">91.2% Accuracy & 0.881 AUC</h4>
+                                        <p class="text-xs text-slate-600">Evaluated on 13,216 vetted PMC women's-health figures.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stat Badges -->
+                            <div class="grid grid-cols-2 gap-3 pt-2">
+                                <div class="clay-badge p-3 text-center">
+                                    <div class="text-xl font-extrabold text-blue-600">NeurIPS '26</div>
+                                    <div class="text-xs font-semibold text-slate-500">Paper Submitted</div>
+                                </div>
+                                <div class="clay-badge p-3 text-center">
+                                    <div class="text-xl font-extrabold text-purple-600">MedGemma-4B</div>
+                                    <div class="text-xs font-semibold text-slate-500">4-Bit QLoRA</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white/50 border-y border-slate-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-16 reveal-on-scroll">
+                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-blue-600">About Me</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Bridging AI Research & Industry Engineering</h3>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Bio Text -->
+                    <div class="lg:col-span-7 clay-card p-6 sm:p-8 space-y-5 flex flex-col justify-between reveal-on-scroll">
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-extrabold text-slate-900 flex items-center gap-2">
+                                <i class="fa-solid fa-user-gear text-blue-600"></i>
+                                Professional Summary
+                            </h4>
+                            <p class="text-slate-600 leading-relaxed font-medium">
+                                Motivated and detail-oriented <strong class="text-slate-900">Computer Science graduate</strong> with hands-on experience in <strong class="text-slate-900">Artificial Intelligence</strong>, <strong class="text-slate-900">Multimodal Vision-Language Models</strong>, and <strong class="text-slate-900">Machine Learning</strong>. Skilled in designing, developing, and deploying AI-driven solutions using modern tools and frameworks.
+                            </p>
+                            <p class="text-slate-600 leading-relaxed font-medium">
+                                Completed an AI internship at <strong class="text-slate-900">Systems Limited</strong>, gaining practical exposure to real-world AI workflows, open-source LLM experimentation, model deployment via Streamlit dashboards & APIs, and cross-functional team collaboration.
+                            </p>
+                            <p class="text-slate-600 leading-relaxed font-medium">
+                                Lead researcher on <strong class="text-purple-700">Med-GReF</strong> (submitted to NeurIPS 2026), focused on evidence-guided multimodal fusion, radiomics, Grad-CAM visual grounding, and hallucination verification in clinical vision-language reasoning.
+                            </p>
+                        </div>
+
+                        <!-- Core Capabilities Pills -->
+                        <div class="pt-4 border-t border-slate-200 flex flex-wrap gap-2">
+                            <span class="px-3.5 py-1.5 clay-badge text-blue-700 text-xs font-bold">Multimodal Fusion & VLMs</span>
+                            <span class="px-3.5 py-1.5 clay-badge text-purple-700 text-xs font-bold">Hallucination Verification (NLI)</span>
+                            <span class="px-3.5 py-1.5 clay-badge text-emerald-700 text-xs font-bold">LLMs & Local Agents</span>
+                            <span class="px-3.5 py-1.5 clay-badge text-amber-700 text-xs font-bold">Industrial Telemetry & PLC Sims</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Facts Grid -->
+                    <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 reveal-on-scroll" style="transition-delay: 0.15s;">
+                        
+                        <div class="clay-card p-5 flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-blue-500 text-white flex items-center justify-center text-xl font-bold shrink-0 shadow-md">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase text-slate-400">Education</div>
+                                <div class="text-base font-bold text-slate-900">BS in Computer Science</div>
+                                <div class="text-xs font-medium text-slate-500">Salim Habib University (2022–2026)</div>
+                            </div>
+                        </div>
+
+                        <div class="clay-card p-5 flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-500 text-white flex items-center justify-center text-xl font-bold shrink-0 shadow-md">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase text-slate-400">Latest Industry Role</div>
+                                <div class="text-base font-bold text-slate-900">AI Intern</div>
+                                <div class="text-xs font-medium text-slate-500">Systems Limited (Jun–Aug 2025)</div>
+                            </div>
+                        </div>
+
+                        <div class="clay-card p-5 flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-xl font-bold shrink-0 shadow-md">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase text-slate-400">Location</div>
+                                <div class="text-base font-bold text-slate-900">Karachi, Pakistan</div>
+                                <div class="text-xs font-medium text-slate-500">Available for On-site & Remote Roles</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Detailed Research Section (Med-GReF) -->
+        <section id="research" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-16 reveal-on-scroll">
+                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-purple-600">Featured AI Research</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Med-GReF Research Paper</h3>
+                    <p class="text-slate-600 text-sm sm:text-base font-medium">Evidence-Guided Multimodal Fusion and Hallucination Verification for Medical Vision-Language Reasoning</p>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Main Research Card -->
+                <div class="clay-card p-6 sm:p-10 border-2 border-purple-200 space-y-8 reveal-on-scroll">
+                    
+                    <!-- Research Top Meta -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-6">
+                        <div class="space-y-1">
+                            <span class="px-4 py-1.5 clay-badge text-purple-700 text-xs font-extrabold uppercase tracking-wider">
+                                <i class="fa-solid fa-award mr-1 text-amber-500"></i> Submitted to NeurIPS 2026 (40th Conference on Neural Information Processing Systems)
+                            </span>
+                            <h4 class="text-2xl sm:text-3xl font-extrabold text-slate-900 pt-2">
+                                Med-GReF: Medical Grounded Reasoning & Fusion
+                            </h4>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-3.5 py-1.5 clay-card-subtle text-slate-700 text-xs font-mono font-bold">
+                                13,216 Vetted PMC Figures
+                            </span>
+                            <span class="px-3.5 py-1.5 clay-card-subtle text-emerald-700 text-xs font-mono font-bold">
+                                4-Pass Code Audit
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Research Abstract & Core Problem -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        
+                        <div class="lg:col-span-7 space-y-4">
+                            <h5 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-info text-purple-600"></i>
+                                Abstract & Objective
+                            </h5>
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                                Vision-Language Models (VLMs) applied to medical imaging often produce claims that sound fluent but aren't backed by the visual or clinical evidence in front of them — a failure mode with direct patient-safety consequences.
+                            </p>
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                                <strong class="text-slate-900">Med-GReF</strong> pairs frozen vision-language backbones (<strong class="text-blue-600">BiomedCLIP</strong> and <strong class="text-blue-600">PubMedBERT</strong>) with quantitative radiomics, Grad-CAM visual explanations, an evidence-guided cross-attention fusion network, and a dedicated Natural Language Inference (NLI) verifier.
+                            </p>
+                        </div>
+
+                        <div class="lg:col-span-5 clay-card-subtle p-5 space-y-3">
+                            <h5 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Key Impact Metrics</h5>
+                            
+                            <div class="space-y-2.5">
+                                <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm text-xs sm:text-sm font-bold">
+                                    <span class="text-slate-600">Classification Accuracy:</span>
+                                    <span class="text-emerald-600 font-mono">0.817 → 0.912 (±0.020)</span>
+                                </div>
+
+                                <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm text-xs sm:text-sm font-bold">
+                                    <span class="text-slate-600">ROC-AUC Improvement:</span>
+                                    <span class="text-blue-600 font-mono">0.570 → 0.881 (±0.016)</span>
+                                </div>
+
+                                <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm text-xs sm:text-sm font-bold">
+                                    <span class="text-slate-600">Hallucination Reduction:</span>
+                                    <span class="text-purple-600 font-mono">2.4× Cut (16.6% → 7.0%)</span>
+                                </div>
+
+                                <div class="flex justify-between items-center bg-white p-3 rounded-xl shadow-sm text-xs sm:text-sm font-bold">
+                                    <span class="text-slate-600">Hallucination Catch Rate:</span>
+                                    <span class="text-amber-600 font-mono">65.5% vs 10.3% baseline</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Architectural Highlights Grid -->
+                    <div class="pt-4">
+                        <h5 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-diagram-project text-blue-600"></i>
+                            Architectural Innovations & Methodology
+                        </h5>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            
+                            <div class="clay-card-subtle p-5 space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center text-lg font-bold mb-2">
+                                    <i class="fa-solid fa-code-merge"></i>
+                                </div>
+                                <h6 class="font-bold text-slate-900 text-base">Multimodal Fusion Stream</h6>
+                                <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                                    Combines 4 streams: BiomedCLIP vision, PubMedBERT clinical text, 64D GLCM radiomics, and Grad-CAM visual saliency with dynamic modality gating.
+                                </p>
+                            </div>
+
+                            <div class="clay-card-subtle p-5 space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center text-lg font-bold mb-2">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                </div>
+                                <h6 class="font-bold text-slate-900 text-base">NLI Hallucination Verifier</h6>
+                                <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                                    Dedicated entailment module scoring whether stated claims match retrieved visual evidence, yielding calibrated confidence scores.
+                                </p>
+                            </div>
+
+                            <div class="clay-card-subtle p-5 space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-lg font-bold mb-2">
+                                    <i class="fa-solid fa-microchip"></i>
+                                </div>
+                                <h6 class="font-bold text-slate-900 text-base">MedGemma-4B QLoRA</h6>
+                                <p class="text-xs text-slate-600 leading-relaxed font-medium">
+                                    Fine-tuned 4-bit QLoRA generative MedGemma-4B backbone on RunPod RTX 4090 GPU hardware across 3-seed evaluation splits.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Methodological Audit Feature -->
+                    <div class="bg-slate-900 text-white rounded-2xl p-6 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono text-purple-400 font-bold uppercase tracking-wider">Methodological Integrity</span>
+                            <span class="text-xs text-emerald-400 font-bold"><i class="fa-solid fa-check-double mr-1"></i> 4 Audit Passes</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Conducted 4 rigorous audit passes over evaluation and fine-tuning pipelines. Identified and resolved critical subtle bugs including untrained confidence heads, unseeded randomness, single-class evaluation splits, and cross-attention tensor shape errors before publication reporting.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Work Experience Section -->
+        <section id="experience" class="py-20 bg-white/50 border-t border-slate-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-16 reveal-on-scroll">
+                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-blue-600">Work Experience</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Industry Experience</h3>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Experience Card -->
+                <div class="max-w-4xl mx-auto reveal-on-scroll">
+                    <div class="clay-card p-6 sm:p-8 space-y-6">
+                        
+                        <!-- Header -->
+                        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
+                            <div>
+                                <h4 class="text-2xl font-extrabold text-slate-900">AI Intern</h4>
+                                <h5 class="text-base font-bold text-blue-600">Systems Limited</h5>
+                            </div>
+                            <div class="text-right">
+                                <span class="px-4 py-1.5 clay-badge text-blue-700 text-xs font-bold block mb-1">
+                                    Jun 2025 — Aug 2025
+                                </span>
+                                <span class="text-xs font-semibold text-slate-500">
+                                    <i class="fa-solid fa-location-dot text-rose-500"></i> Karachi, Pakistan
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Bullet Points -->
+                        <ul class="space-y-3 text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1 shrink-0"></i>
+                                <span>Contributed to the development and experimentation of open-source <strong class="text-slate-900">Large Language Model (LLM) tools</strong>.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1 shrink-0"></i>
+                                <span>Assisted in building <strong class="text-slate-900">AI-driven business automation solutions</strong>, improving operational efficiency and reducing manual processes.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1 shrink-0"></i>
+                                <span>Worked on <strong class="text-slate-900">Natural Language Processing (NLP)</strong> projects involving text classification and automated summarization.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1 shrink-0"></i>
+                                <span>Supported the deployment of AI models into production environments using APIs and <strong class="text-slate-900">Streamlit dashboards</strong>, ensuring smooth integration.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-1 shrink-0"></i>
+                                <span>Collaborated with senior data scientists and AI engineers, strengthening teamwork, communication, and project management skills.</span>
+                            </li>
+                        </ul>
+
+                        <!-- Tech Badges -->
+                        <div class="pt-4 border-t border-slate-200 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">LLMs</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">NLP</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Streamlit</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Python</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">API Deployment</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-16 reveal-on-scroll">
+                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-blue-600">Featured Software Projects</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Projects & Engineering</h3>
+                    <p class="text-slate-600 text-sm sm:text-base font-medium">Full-stack applications, local LLM interfaces, and industrial IoT monitoring systems.</p>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Featured FYP Project (SUPARCO Spotlight) -->
+                    <div class="md:col-span-2 clay-card p-6 sm:p-8 space-y-6 border-2 border-blue-200 reveal-on-scroll">
+                        
+                        <div class="flex flex-wrap items-center justify-between gap-3">
+                            <span class="px-4 py-1.5 clay-badge text-blue-700 text-xs font-extrabold uppercase tracking-wider">
+                                <i class="fa-solid fa-star text-amber-500 mr-1"></i> Final Year Project (SUPARCO Collaboration)
+                            </span>
+                            <span class="text-xs font-mono font-bold text-slate-500">Sep 2025 — May 2026</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                            <div class="lg:col-span-7 space-y-4">
+                                <h4 class="text-2xl font-extrabold text-slate-900">
+                                    Custom Grafana-Based Monitoring & Control Console
+                                </h4>
+                                <p class="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">
+                                    Built a real-time industrial monitoring dashboard and Digital Twin control console designed for high-density telemetry processing and industrial asset supervision.
+                                </p>
+                                <ul class="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-check text-blue-600 mt-1"></i>
+                                        <span>Built real-time industrial monitoring dashboard using Next.js, React, ASP.NET Core (.NET 8), Grafana, and InfluxDB.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-check text-blue-600 mt-1"></i>
+                                        <span>Developed a <strong class="text-slate-900">Digital Twin simulator</strong> for real-time PLC data monitoring and visualization.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-check text-blue-600 mt-1"></i>
+                                        <span>Implemented JWT authentication, role-based access control (RBAC), and automated email alerts.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-check text-blue-600 mt-1"></i>
+                                        <span>Integrated Modbus TCP, Docker, and InfluxDB for scalable, low-latency telemetry processing.</span>
+                                    </li>
+                                </ul>
+
+                                <div class="pt-2 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 clay-badge text-blue-700 text-xs font-bold">Next.js</span>
+                                    <span class="px-3 py-1 clay-badge text-blue-700 text-xs font-bold">React</span>
+                                    <span class="px-3 py-1 clay-badge text-blue-700 text-xs font-bold">ASP.NET Core (.NET 8)</span>
+                                    <span class="px-3 py-1 clay-badge text-blue-700 text-xs font-bold">Grafana</span>
+                                    <span class="px-3 py-1 clay-badge text-blue-700 text-xs font-bold">InfluxDB</span>
+                                    <span class="px-3 py-1 clay-badge text-blue-700 text-xs font-bold">Modbus TCP</span>
+                                    <span class="px-3 py-1 clay-badge text-blue-700 text-xs font-bold">Docker</span>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 clay-card-subtle p-5 space-y-3">
+                                <div class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-300/80 pb-2 flex justify-between">
+                                    <span>SYSTEM STACK</span>
+                                    <span class="text-emerald-600">● LIVE RUNTIME</span>
+                                </div>
+                                <div class="space-y-2 text-xs font-bold">
+                                    <div class="flex justify-between text-slate-700">
+                                        <span>Protocol:</span>
+                                        <span class="font-mono text-blue-600">Modbus TCP</span>
+                                    </div>
+                                    <div class="flex justify-between text-slate-700">
+                                        <span>Database:</span>
+                                        <span class="font-mono text-purple-600">InfluxDB</span>
+                                    </div>
+                                    <div class="flex justify-between text-slate-700">
+                                        <span>Backend API:</span>
+                                        <span class="font-mono text-blue-600">ASP.NET Core 8</span>
+                                    </div>
+                                    <div class="flex justify-between text-slate-700">
+                                        <span>Sim Engine:</span>
+                                        <span class="font-mono text-emerald-600">PLC Digital Twin</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Project 2: Text-to-SQL App -->
+                    <div class="clay-card p-6 sm:p-8 space-y-5 flex flex-col justify-between reveal-on-scroll">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-extrabold text-slate-900">
+                                Text-to-SQL App (LLM-Powered)
+                            </h4>
+                            <p class="text-slate-600 text-sm font-medium leading-relaxed">
+                                Built a natural language interface for querying SQL databases powered by local Large Language Models (LLMs).
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-chevron-right text-blue-600 mt-1"></i>
+                                    <span>Integrated local LLMs including <strong class="text-slate-900">SQLCoder</strong> and <strong class="text-slate-900">Ollama</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-chevron-right text-blue-600 mt-1"></i>
+                                    <span>Enabled non-technical users to generate and execute accurate SQL queries from plain text.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-chevron-right text-blue-600 mt-1"></i>
+                                    <span>Deployed interactive Streamlit UI with Hugging Face pipelines.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Python</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Hugging Face</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">SQLCoder</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Ollama</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Streamlit</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Project 3: AI Tour Booking App -->
+                    <div class="clay-card p-6 sm:p-8 space-y-5 flex flex-col justify-between reveal-on-scroll" style="transition-delay: 0.15s;">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                                <i class="fa-solid fa-plane-departure"></i>
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-extrabold text-slate-900">
+                                AI Tour Booking App
+                            </h4>
+                            <p class="text-slate-600 text-sm font-medium leading-relaxed">
+                                Developed a scalable travel assistant utilizing AI agents to automatically discover optimal flights and hotel deals.
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-chevron-right text-purple-600 mt-1"></i>
+                                    <span>Autonomous AI agent workflow to compare and identify cheapest travel options.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-chevron-right text-purple-600 mt-1"></i>
+                                    <span>Integrated Next.js, Prisma ORM, PostgreSQL, and Make.com for real-time automation.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-chevron-right text-purple-600 mt-1"></i>
+                                    <span>Designed responsive UI components using ShadCN UI.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Next.js</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Prisma ORM</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">PostgreSQL</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Make.com</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">ShadCN UI</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Project 4: Sales Forecast (Daraz Dataset) -->
+                    <div class="md:col-span-2 clay-card p-6 sm:p-8 space-y-5 flex flex-col justify-between reveal-on-scroll">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <span class="px-4 py-1.5 clay-badge text-emerald-700 text-xs font-bold">
+                                    23% RMSE Reduction
+                                </span>
+                            </div>
+                            
+                            <h4 class="text-xl sm:text-2xl font-extrabold text-slate-900">
+                                Sales Forecast & Analytics (Daraz Dataset)
+                            </h4>
+                            <p class="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">
+                                Trained regression models on e-commerce transaction data from Daraz to accurately predict product demand and sales performance.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs sm:text-sm text-slate-700 font-medium">
+                                <div class="clay-card-subtle p-4">
+                                    <strong class="text-slate-900 block mb-1">Feature Engineering</strong>
+                                    Extensive data preprocessing, outlier removal, categorical encoding, and feature selection.
+                                </div>
+                                <div class="clay-card-subtle p-4">
+                                    <strong class="text-slate-900 block mb-1">Model Hyperparameter Tuning</strong>
+                                    Achieved a 23% reduction in Root Mean Squared Error (RMSE) through model optimization.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Python</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Scikit-learn</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Pandas</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Regression Analysis</span>
+                            <span class="px-3 py-1 clay-card-subtle text-slate-700 text-xs font-mono font-bold">Daraz Dataset</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-white/50 border-t border-slate-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-16 reveal-on-scroll">
+                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-blue-600">Technical Expertise</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Skills & Toolkit</h3>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- AI & ML -->
+                    <div class="clay-card p-6 space-y-4 reveal-on-scroll">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-lg">AI / ML & Data Science</h4>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm font-semibold text-slate-700">
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>BiomedCLIP & PubMedBERT</span>
+                                <i class="fa-solid fa-check text-purple-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>Hugging Face & Llama.cpp</span>
+                                <i class="fa-solid fa-check text-purple-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>SQLCoder & Local LLMs</span>
+                                <i class="fa-solid fa-check text-purple-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>Scikit-learn & Pandas</span>
+                                <i class="fa-solid fa-check text-purple-600"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="clay-card p-6 space-y-4 reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-lg">Languages & Scripting</h4>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm font-semibold text-slate-700">
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>Python</span>
+                                <span class="text-xs font-mono text-blue-600 font-bold">Advanced</span>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>JavaScript</span>
+                                <span class="text-xs font-mono text-blue-600 font-bold">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>C++</span>
+                                <span class="text-xs font-mono text-blue-600 font-bold">Proficient</span>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>SQL</span>
+                                <span class="text-xs font-mono text-blue-600 font-bold">Advanced</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Web & Frameworks -->
+                    <div class="clay-card p-6 space-y-4 reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500 text-white flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-lg">Web & Frameworks</h4>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm font-semibold text-slate-700">
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>React.js & Next.js</span>
+                                <i class="fa-solid fa-check text-cyan-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>Prisma ORM & ShadCN</span>
+                                <i class="fa-solid fa-check text-cyan-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>TailwindCSS & Streamlit</span>
+                                <i class="fa-solid fa-check text-cyan-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>ASP.NET Core (.NET 8)</span>
+                                <i class="fa-solid fa-check text-cyan-600"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Databases & Telemetry -->
+                    <div class="clay-card p-6 space-y-4 reveal-on-scroll">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-lg">Databases & Monitoring</h4>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm font-semibold text-slate-700">
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>MySQL & PostgreSQL</span>
+                                <i class="fa-solid fa-check text-emerald-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>InfluxDB & Grafana</span>
+                                <i class="fa-solid fa-check text-emerald-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>Modbus TCP & PLC Sims</span>
+                                <i class="fa-solid fa-check text-emerald-600"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tools & Cloud -->
+                    <div class="clay-card p-6 space-y-4 reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-lg">DevOps & Cloud</h4>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm font-semibold text-slate-700">
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>Docker Containers</span>
+                                <i class="fa-solid fa-check text-amber-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>AWS (Basic Services)</span>
+                                <i class="fa-solid fa-check text-amber-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>Git, Vercel, Make.com</span>
+                                <i class="fa-solid fa-check text-amber-600"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Core Competencies -->
+                    <div class="clay-card p-6 space-y-4 reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-rose-500 text-white flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <h4 class="font-extrabold text-slate-900 text-lg">Core Skills & Spoken</h4>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm font-semibold text-slate-700">
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>UI & Claymorphic Design</span>
+                                <i class="fa-solid fa-check text-rose-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>Backend Logic & REST APIs</span>
+                                <i class="fa-solid fa-check text-rose-600"></i>
+                            </li>
+                            <li class="flex items-center justify-between clay-card-subtle p-3">
+                                <span>English Language</span>
+                                <span class="text-xs font-mono text-emerald-600 font-bold">Fluent</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-16 reveal-on-scroll">
+                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-blue-600">Academic Background</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Education</h3>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="max-w-3xl mx-auto reveal-on-scroll">
+                    <div class="clay-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                        <div class="flex items-center gap-5">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-purple-600 text-white flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <span class="px-3 py-1 clay-badge text-blue-700 text-xs font-bold">
+                                    Sep 2022 — Jun 2026
+                                </span>
+                                <h4 class="text-xl font-extrabold text-slate-900">BS in Computer Science</h4>
+                                <h5 class="text-sm font-bold text-slate-700">Salim Habib University</h5>
+                                <p class="text-xs font-semibold text-slate-500">Karachi, Pakistan</p>
+                            </div>
+                        </div>
+
+                        <div class="w-full sm:w-auto text-left sm:text-right border-t sm:border-t-0 pt-4 sm:pt-0 border-slate-200">
+                            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 clay-badge px-4 py-2">
+                                <i class="fa-solid fa-certificate"></i> Graduating 2026
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Contact Section (No Form, Direct Contact Cards) -->
+        <section id="contact" class="py-20 bg-white/50 border-t border-slate-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-16 reveal-on-scroll">
+                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-blue-600">Get In Touch</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Let's Connect</h3>
+                    <p class="text-slate-600 text-sm sm:text-base font-medium">Feel free to reach out directly via email, phone, or download my full resume.</p>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                    
+                    <!-- Email Card -->
+                    <div class="clay-card p-6 space-y-4 flex flex-col justify-between reveal-on-scroll">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase text-slate-400">Email Address</div>
+                                <a href="mailto:ammarmosani324@gmail.com" class="text-sm font-extrabold text-slate-900 hover:text-blue-600 transition-colors block break-all">
+                                    ammarmosani324@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <button onclick="copyToClipboard('ammarmosani324@gmail.com', this)" class="w-full py-2.5 clay-btn-secondary text-xs font-bold flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Copy Email</span>
+                        </button>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="clay-card p-6 space-y-4 flex flex-col justify-between reveal-on-scroll" style="transition-delay: 0.1s;">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase text-slate-400">Phone Number</div>
+                                <a href="tel:+923212212718" class="text-sm font-extrabold text-slate-900 hover:text-emerald-600 transition-colors">
+                                    +92 321 2212718
+                                </a>
+                            </div>
+                        </div>
+
+                        <button onclick="copyToClipboard('+923212212718', this)" class="w-full py-2.5 clay-btn-secondary text-xs font-bold flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Copy Phone</span>
+                        </button>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="clay-card p-6 space-y-4 flex flex-col justify-between reveal-on-scroll" style="transition-delay: 0.2s;">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase text-slate-400">Location</div>
+                                <div class="text-sm font-extrabold text-slate-900">Karachi, Pakistan</div>
+                                <div class="text-xs font-medium text-slate-500">Open to Remote & Relocation</div>
+                            </div>
+                        </div>
+
+                        <div class="px-3 py-2 clay-card-subtle text-center text-xs font-bold text-purple-700">
+                            <i class="fa-solid fa-globe mr-1"></i> Worldwide Remote
+                        </div>
+                    </div>
+
+                    <!-- Resume Card -->
+                    <div class="clay-card p-6 space-y-4 flex flex-col justify-between reveal-on-scroll" style="transition-delay: 0.3s;">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase text-slate-400">Curriculum Vitae</div>
+                                <div class="text-sm font-extrabold text-slate-900">Muhammad Ammar Resume</div>
+                                <div class="text-xs font-medium text-slate-500">PDF Format (Updated)</div>
+                            </div>
+                        </div>
+
+                        <a href="updated_resume.pdf" download class="w-full py-2.5 clay-btn-primary text-xs font-bold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-clay-bg border-t border-white/80 py-10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Brand -->
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 clay-btn-primary flex items-center justify-center font-extrabold text-xs">
+                        MA
+                    </div>
+                    <span class="text-sm text-slate-600 font-semibold">
+                        © 2026 Muhammad Ammar. All rights reserved.
+                    </span>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="flex items-center gap-6 text-sm font-semibold text-slate-600">
+                    <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+                    <a href="#research" class="hover:text-purple-600 transition-colors">Med-GReF Research</a>
+                    <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+                </div>
+
+                <!-- Back to Top Button -->
+                <a href="#hero" class="w-11 h-11 clay-btn-secondary flex items-center justify-center text-slate-600 hover:text-blue-600" title="Back to top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-lg';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-lg';
+            }
+        });
+
+        // Close mobile menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-lg';
+            });
+        });
+
+        // Copy to Clipboard Helper
+        function copyToClipboard(text, btnElement) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalHTML = btnElement.innerHTML;
+                btnElement.innerHTML = `<i class="fa-solid fa-check text-emerald-600"></i><span class="text-emerald-600 font-bold">Copied!</span>`;
+                setTimeout(() => {
+                    btnElement.innerHTML = originalHTML;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Scroll Reveal Animations using IntersectionObserver
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
