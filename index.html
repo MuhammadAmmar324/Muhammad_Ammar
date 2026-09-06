@@ -17,11 +17,8 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'] } } } };
-  // theme: system default, with a manual override remembered per-browser
-  try {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && matchMedia('(prefers-color-scheme: dark)').matches))
-      document.documentElement.classList.add('dark');
-  } catch (e) {}
+  // Light by default. Dark only if the visitor explicitly toggled it before.
+  try { if (localStorage.theme === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
