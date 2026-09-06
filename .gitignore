@@ -1,0 +1,13 @@
+# agent
+.env
+agent/.env
+.vercel/
+node_modules/
+__pycache__/
+*.pyc
+
+# os / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
